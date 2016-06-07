@@ -1,0 +1,36 @@
+{
+  "name": "kinesisStreamHandler",
+  "runtime": "nodejs4.3",
+  "description": "Serverless Lambda function for project: sls-kinesis-test",
+  "customName": false,
+  "customRole": false,
+  "handler": "handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [],
+  "events": [
+    {
+      "name" : "KinesisStream",
+      "type": "kinesisstream",
+      "config": {
+        "streamArn": "${StreamArn}",
+        "startingPosition": "LATEST",
+        "batchSize": 50,
+        "enabled": false
+      }
+    }
+  ],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}
