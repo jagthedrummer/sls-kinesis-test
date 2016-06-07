@@ -39,6 +39,14 @@
                 "logs:PutLogEvents"
               ],
               "Resource": "arn:aws:logs:${region}:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Resource": "*",
+              "Action": [
+                "lambda:*",
+                "kinesis:*"
+              ]
             }
           ]
         },
@@ -47,6 +55,12 @@
             "Ref": "IamRoleLambda"
           }
         ]
+      }
+    },
+    "KinesisStream" : {
+      "Type" : "AWS::Kinesis::Stream",
+      "Properties" : {
+        "ShardCount" : "2"
       }
     }
   },
