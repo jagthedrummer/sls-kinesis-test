@@ -17,7 +17,7 @@
       "name" : "KinesisStream",
       "type": "kinesisstream",
       "config": {
-        "streamArn": "${StreamArn}",
+        "streamArn": "${streamArn}",
         "startingPosition": "LATEST",
         "batchSize": 50,
         "enabled": false
