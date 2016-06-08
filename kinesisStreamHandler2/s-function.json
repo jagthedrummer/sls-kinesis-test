@@ -1,5 +1,5 @@
 {
-  "name": "kinesisStreamHandler",
+  "name": "kinesisStreamHandler2",
   "runtime": "nodejs4.3",
   "description": "Serverless Lambda function for project: sls-kinesis-test",
   "customName": false,
@@ -14,7 +14,7 @@
   "endpoints": [],
   "events": [
     {
-      "name" : "KinesisStream",
+      "name" : "KinesisStream2",
       "type": "kinesisstream",
       "config": {
         "streamArn": "${streamArn}",

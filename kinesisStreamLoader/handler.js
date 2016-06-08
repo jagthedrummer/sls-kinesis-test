@@ -10,11 +10,11 @@ module.exports.handler = function(event, context, cb) {
     ],
     StreamName: 'sls-kinesis-test-jag-r-KinesisStream-YYFXSDEHH1IE' /* required */
   };
-  for(var i = 0; i < 1; i++){
+  for(var i = 0; i < 2; i++){
     params.Records.push({
-      Data: JSON.stringify({ test: 'oh ha, this will error some more!', foo: 'bar', number: 42 }), /* required */
+      Data: JSON.stringify({ test: 'oh ha, this will error some more!', foo: 'bar', number: 42, isGood: i === 1 }), /* required */
       PartitionKey: 'STRING_VALUE', /* required */
-      //ExplicitHashKey: 'STRING_VALUE'
+      ExplicitHashKey: i === 1 ? '0' : '170141183460469231731687303715884105728'
     });
   }
   kinesis.putRecords(params, function(err, data) {
