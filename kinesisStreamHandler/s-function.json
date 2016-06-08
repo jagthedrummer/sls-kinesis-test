@@ -20,7 +20,7 @@
         "streamArn": "${streamArn}",
         "startingPosition": "LATEST",
         "batchSize": 50,
-        "enabled": false
+        "enabled": true
       }
     }
   ],
